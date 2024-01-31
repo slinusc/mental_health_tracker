@@ -8,13 +8,17 @@ body{
 /*------------ Login container ------------*/
 
 .box-area{
-    width: 930px;
+    width: 900px;
+    height: 50vh;
 }
 
 /*------------ Right box ------------*/
 
 .right-box{
     padding: 40px 40px 40px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*------------ Left box ------------*/
