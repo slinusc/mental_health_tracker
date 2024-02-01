@@ -39,9 +39,4 @@ $(document).ready(function() {
     if ($('#flashModal .alert').length > 0) {
         $('#flashModal').modal('show');
     }
-
-    // Überprüfen, ob emailExists wahr ist und das Registrierungs-Modal anzeigen
-    if (emailExists) {
-        $('#registerModal').modal('show');
-    }
 });

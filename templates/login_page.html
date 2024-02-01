@@ -11,25 +11,18 @@
 </head>
 <body>
 
-<!----------------------- Main Container -------------------------->
-
+<!--Main Container-->
 <div class="container d-flex justify-content-center align-items-center min-vh-100" >
-
-    <!----------------------- Login Container -------------------------->
-
+    <!--Login Container-->
     <div class="row border rounded-5 p-3 bg-white shadow box-area">
-
-        <!--------------------------- Left Box ----------------------------->
-
+        <!--Logo-Box-->
         <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
              style="background: #ffffff;">
             <div class="featured-image mb-3">
                 <img src="../static/images/logo4.jpg" class="img-fluid" style="width: 100%;">
             </div>
         </div>
-
-
-        <!-------------------- ------ Right Box ---------------------------->
+        <!--Login-Box-->
         <div class="col-md-6 right-box d-flex justify-content-center align-items-center">
             <form action="/login" method="post">
                 <div class="row align-items-center">
@@ -169,14 +162,8 @@
 
 
 <!-- Skripte -->
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    var emailExists = {{'true' if session.pop('email_exists', None) else'false'}};
-</script>
-
 <script src="../static/js/login.js"></script>
 
 
