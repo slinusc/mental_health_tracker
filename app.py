@@ -48,7 +48,7 @@ def login():
 
         if login_user is None or not check_password_hash(login_user['password'], request.form['password']):
             flash('E-Mail oder Passwort inkorrekt', 'danger')
-            return render_template('login_page.html')
+            return redirect(url_for('login_page'))
 
         # Setzen des 'username' in der Session nach erfolgreicher Authentifizierung
         session['username'] = login_user['username']
@@ -63,9 +63,6 @@ def login():
 
         # Weiterleitung zum Hauptbereich der Anwendung
         return redirect(url_for('index'))
-
-    # Wenn die Methode nicht POST ist, zeigt es die Login-Seite
-    return render_template('login_page.html')
 
 
 @app.route('/index')
