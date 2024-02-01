@@ -90,9 +90,13 @@ def login_page():
     return render_template('login_page.html')
 
 
-@app.route('/main')
-def main():
-    return render_template('main_page.html')
+
+@app.route('/mood')
+def mood():
+    if 'username' in session:
+        return render_template('mood_diary.html', username=session['username'])
+    else:
+        return redirect(url_for('main_page'))
 
 
 if __name__ == '__main__':

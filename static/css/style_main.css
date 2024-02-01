@@ -24,6 +24,7 @@ body {
     text-decoration: none;
 }
 
+
 .card {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -31,4 +32,9 @@ body {
     color: #000;
     font-size: 14px;
     text-decoration: none;
+    transition: transform 0.1s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
 }
