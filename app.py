@@ -50,20 +50,21 @@ def login():
             flash('E-Mail oder Passwort inkorrekt', 'danger')
             return render_template('login_page.html')
 
-        # Setzen Sie den 'username' in der Session nach erfolgreicher Authentifizierung
+        # Setzen des 'username' in der Session nach erfolgreicher Authentifizierung
         session['username'] = login_user['username']
 
-        # Generieren Sie eine eindeutige Session-ID
+        # Generieren einer eindeutigen Session-ID
         session_id = str(uuid.uuid4())
         session['session_id'] = session_id
 
-        # Loggen Sie die Benutzeraktivität
-        logger.log_login_activity(session_id, session['username'], request.remote_addr, request.headers.get('User-Agent'))
+        # Loggen der Benutzeraktivität
+        logger.log_login_activity(session_id, session['username'], request.remote_addr,
+                                  request.headers.get('User-Agent'))
 
         # Weiterleitung zum Hauptbereich der Anwendung
         return redirect(url_for('index'))
 
-    # Wenn die Methode nicht POST ist, zeigen Sie die Login-Seite
+    # Wenn die Methode nicht POST ist, zeigt es die Login-Seite
     return render_template('login_page.html')
 
 
@@ -88,7 +89,6 @@ def logout():
 @app.route('/')
 def login_page():
     return render_template('login_page.html')
-
 
 
 @app.route('/mood')
