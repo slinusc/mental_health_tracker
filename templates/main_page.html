@@ -17,7 +17,7 @@
     <div class="row mb-4">
         <div class="col">
             <h1>Mental Health Tracker Dashboard</h1>
-            <p class="lead">Willkommen zurück, {{username}}!</p>
+            <p class="lead">Willkommen zurück, {{ username }}!</p>
         </div>
 
         <!-- Logout-Link -->
@@ -33,26 +33,29 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
         <!-- Tile 1: Stimmungstagebuch -->
         <div class="col">
-            <a href="/mood" class="text-decoration-none text-dark">
-                <div class="card h-100 shadow">
-                    <img src="/static/images/mood-diary.jpg" class="card-img-top" alt="Stimmungstagebuch">
-                    <div class="card-body">
-                        <h5 class="card-title">Stimmungstagebuch</h5>
-                        <p class="card-text">Verfolge täglich deine Stimmung und Gefühle.</p>
-                    </div>
+
+            <div class="card h-100 shadow">
+                <img src="/static/images/mood-diary.jpg" class="card-img-top" alt="Stimmungstagebuch">
+                <div class="card-body">
+                    <h5 class="card-title">Stimmungstagebuch</h5>
+                    <p class="card-text">Verfolge täglich deine Stimmung und Gefühle.</p>
                 </div>
-            </a>
+            </div>
+
         </div>
 
         <!-- Tile 2: Personalisierte Empfehlungen -->
         <div class="col">
-            <div class="card h-100 shadow">
-                <img src="/static/images/recommendations.jpg" class="card-img-top" alt="Personalisierte Empfehlungen">
-                <div class="card-body">
-                    <h5 class="card-title">Personalisierte Empfehlungen und Analysen</h5>
-                    <p class="card-text">Erhalte Vorschläge, um dein Wohlbefinden zu steigern.</p>
+            <a href="/rcom_page" class="text-decoration-none text-dark">
+                <div class="card h-100 shadow">
+                    <img src="/static/images/recommendations.jpg" class="card-img-top"
+                         alt="Personalisierte Empfehlungen">
+                    <div class="card-body">
+                        <h5 class="card-title">Personalisierte Empfehlungen und Analysen</h5>
+                        <p class="card-text">Erhalte Vorschläge, um dein Wohlbefinden zu steigern.</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!-- Tile 3: Stresserkennung und -management -->

@@ -1,11 +1,14 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 from flask_pymongo import PyMongo
+from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 import uuid
 import os
 from pycode.user_logs import UserActivityLogger as ual
+from pycode.chat import Chat
 
 app = Flask(__name__)
+CORS(app)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/mht"
 mongo = PyMongo(app)
 app.secret_key = os.urandom(16)
@@ -88,12 +91,27 @@ def login_page():
     return render_template('login_page.html')
 
 
-@app.route('/mood')
-def mood():
+@app.route('/rcom_page')
+def recom_page():
     if 'username' in session:
-        return render_template('mood_diary.html', username=session['username'])
+        return render_template('recommendations_chat.html', username=session['username'])
     else:
         return redirect(url_for('main_page'))
+
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    if request.method == 'POST':
+        data = request.json
+        user_message = data.get('user_message', '')  # Sicherer Zugriff auf 'user_message'
+        if 'username' in session:
+            chat = Chat()
+            chat.set_initial_message(session['username'])
+            response = chat.create_chat(user_message)
+            return jsonify({'response': response.content})
+
+        else:
+            return jsonify({'response': 'Session nicht gefunden. Bitte erneut anmelden.'}), 403
 
 
 if __name__ == '__main__':
